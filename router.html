@@ -30,6 +30,9 @@
             function back() {
                 window.history.go(-1);
             }
+            function forward() {
+                window.history.go(1);
+            }
             window.onload = event => {
                 // Add history push() event when boxes are clicked
                 window["home"].addEventListener("click", event => push(event))
@@ -37,7 +40,10 @@
                 window["gallery"].addEventListener("click", event => push(event))
                 window["contact"].addEventListener("click", event => push(event))
                 window["help"].addEventListener("click", event => push(event))
+
+                // Add back and forward event when clicked
                 window["back"].addEventListener("click", event => back())
+                window["forward"].addEventListener("click", event => forward())
             }
             // Listen for PopStateEvent (Back or Forward buttons are clicked)
             window.addEventListener("popstate", event => {
@@ -93,6 +99,7 @@
     <section class = "route" id = "gallery">/gallery</section>
     <section class = "route" id = "contact">/contact</section>
     <section class = "route" id = "help">/help</section>
+    <div id="forward">FORWARD</div>
 </section>
 
 <main id = "content">Content loading...</main>
